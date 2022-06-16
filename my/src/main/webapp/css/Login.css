@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+html {
+	height:100%;
+}
+
+body {
+	margin : 0px;
+	height : 100%;
+	text-align : center;
+	background-color: 	#F8F8FF;
+	
+}
+
+#Login{
+	height : 300px;
+	width : 400px;
+	background-color: 	#C0C0C0;
+	margin : 0px auto;
+	
+}
+
+#Login_btn{
+	 
+	height : 30px;
+	width : 180px;
+	margin : 10px 100px 10px 100px;
+	
+}
+
+#idfind{
+	float : left;
+	transform: translate(0px, 10px);
+	
+}
+
+#pwdfind{
+	
+	float : left;
+	transform: translate(0px, 10px);
+}
+#memberjoin{
+	float : right;
+	margin : 10px auto;
+}
+
+
+#id{
+	margin : 0px auto;
+	
+}
+
+#pwd{
+	margin : 0px auto;
+	
+}

@@ -1,0 +1,227 @@
+@charset "UTF-8";
+
+html {
+	height : 100%;	/* height %로 높이지정은 부모태그의 높이를 따라감 */
+	background: url(https://cdn.pixabay.com/photo/2016/03/27/07/32/clouds-1282314_960_720.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+/*배경이미지 꽉채우법*/
+}
+
+body {
+	margin : 0px;
+	width : 100%;
+	height : 100%;
+	
+
+
+}
+
+header{
+	height : 100px;
+	width : 900px;
+	margin : 0px auto;
+	text-align : center;
+	
+}
+
+nav{
+
+	background-color: #696969;
+	height : 50px;
+	width : 900px;
+	margin : 0px auto;
+	
+}
+
+main{
+	
+	width : 900px;
+	height : 100%;
+	margin : 0px auto;
+	background-color: 	#F8F8FF;
+	
+}
+
+nav ul li{
+     
+     color : white;
+     margin : 15px auto;
+ 	 text-align: center;
+ 	 display: inline-block;
+ 	 
+}
+
+a{
+	text-decoration : none;
+	
+}
+
+nav ul {
+	list-style-type:none;
+	 display: flex;
+ 	 justify-content: space-between;
+    
+}
+
+
+#Login {
+	background-color:		#C0C0C0;
+	height: 140px;
+	width:280px;
+	margin: 0px auto;
+	
+	float:right;
+	
+	
+}
+
+#Login h3{
+	text-align:center;
+	margin:10px 0 0 0;
+}
+
+#Login_btn{
+	
+	border:0;
+	background-color:#00FF7F;
+	height : 50px;
+	width : 240px;
+	transform: translate(20px, -5px);
+	
+	
+}
+#Logout{
+	float:left;
+	margin : 0px auto;
+	transform: translate(-75px, 120px);
+}
+#memberAccount{
+	
+	transform: translate(70px, 120px);
+	
+	
+}
+
+#nboard table{
+	
+	width : 500px;
+	height : 200px;
+	margin : 0px 0 0 0;
+	border-spacing: 0;
+	
+	text-align:center;
+	
+	
+}
+
+#nboard table td{
+	border-bottom: 1px solid #cecece;
+	
+}
+
+#fboard table{
+	width : 500px;
+	height : 400px;
+	margin:50px 0 0 0;
+	border-spacing: 0;
+	text-align:center;
+}
+
+#fboard table td{
+	border-bottom: 1px solid #cecece;
+	
+}
+
+#Qboard{
+	width : 900px;
+	height : 900px;
+	background-color: #E0FFFF;
+	text-align: center;
+}
+
+#NQ{
+	margin : 0px auto;
+}
+
+#NQ button{
+	width:300px;
+	height : 50px;
+	margin : 20px auto;
+	border-radius: 100px;
+	}
+	
+#HQ {
+	margin: 0px auto;	
+}
+#HQ button {
+	width : 300px;
+	height : 50px;
+	margin : 20px auto;
+	border-radius: 100px;
+}
+
+#username{
+	
+	font-size: 20px;
+	float : left;
+	transform: translate(100px, 0px);
+}
+
+#idfind{
+	float : left;
+	transform: translate(0px, 10px);
+	
+}
+
+#pwdfind{
+	
+	float : left;
+	transform: translate(0px, 10px);
+}
+
+#memberjoin{
+	
+	float : right;
+	transform: translate(0px, 10px);
+}
+
+
+.loading{
+    width:100%;
+    height:100%;
+    position:fixed;
+    margin : 0px auto;
+    text-align: center;
+    left:0%;
+    top: 0%;
+    background:#fff;
+    z-index:1000; /* 이 값으로 레이어의 위치를 조정합니다. */
+}
+
+.img{
+	margin : auto;
+	 
+	
+}
+
+footer{
+	
+	height :200px;
+	
+}
+
+#slideimg{
+	
+	float:right;
+
+}
+
+#slideimg .slide1{
+	width:350px;
+	height:300px;
+	
+}

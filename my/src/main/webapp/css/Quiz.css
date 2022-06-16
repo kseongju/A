@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+html body{
+	height : 100%;
+	text-align : center;
+	background-color: #F8F8FF;
+	
+}
+
+#qfm {
+	width : 300px;
+	margin : 0px auto;
+}
+
+#genre {
+	width : 100px;
+	height : 20px;
+	float : left;
+	margin : 10px auto;
+}
+
+#content {
+	width : 300px;
+	height : 400px;
+	float : left;
+	margin : 0px auto;
+}
+
+#answer {
+	margin : 10px auto;
+	float : left;
+}
+
+#quizbtn{
+	float : right;
+}

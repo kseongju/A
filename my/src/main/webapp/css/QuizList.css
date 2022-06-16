@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+body{
+	height: 100%;
+	margin: 0px;
+	text-align: center;
+	
+}
+
+
+#QuizList {
+	width : 500px;
+	height : 100%;
+	margin : 0px auto;
+}
+
+#QuizList table{
+	width : 500px;
+	height : 100%;
+	margin : 0px auto;
+	table-layout:fixed;
+	border-spacing: 0;
+	background-color : #E6E6FA;
+	
+}
+
+#QuizList table td{
+	border-bottom: 1px solid #cecece;
+	text-overflow:ellipsis;
+	overflow:hidden;
+
+	
+}
+
+#btn{
+	
+	margin : 10px;
+	float:right;
+}
