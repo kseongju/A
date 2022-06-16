@@ -6,20 +6,22 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBconn {
-	//ì ‘ì†ì •ë³´
-    String url="jdbc:mysql://127.0.0.1:3306/mysql?serverTimezone=UTC&characterEncoding=UTF-8";
-    String user="root";
-    String password="1234";
+	
+	String url="jdbc:mysql://127.0.0.1:3306/mysql?serverTimezone=UTC&characterEncoding=UTF-8";
+	String user="root";
+	String password = "1234";		
     
     public Connection getConnection() {
     	Connection conn = null;
     try {
-    //ë“œë¼ì´ë²„
-    Class.forName("com.mysql.cj.jdbc.Driver");
-    //connì— ì ‘ì†ì •ë³´ë¥¼ ë‹´ì•„ ë°˜í™˜
+    //µå¶óÀÌ¹ö
+    	Class.forName("com.mysql.cj.jdbc.Driver");
+    //conn¿¡ Á¢¼ÓÁ¤º¸¸¦ ´ã¾Æ ¹İÈ¯
    conn = DriverManager.getConnection(url, user, password);
+   System.out.println("¼º°ø");
     }catch(Exception e) {
     	e.printStackTrace();
+    	
     }
     	return conn;
     }

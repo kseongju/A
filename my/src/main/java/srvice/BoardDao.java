@@ -96,10 +96,10 @@ public class BoardDao {
 		
 		String str=""; //검색기능(기본값)
 		if(scri.getSearchType().equals("title")) {
-			 str = "and title like concat('%','?','%')";
+			 str = "and title like ?";
 			
 		}else {
-			str = "and writer like concat('%','?','%')";
+			str = "and writer like ?";
 			
 		}
 		
@@ -139,10 +139,10 @@ public class BoardDao {
 		
 		String str=""; //검색기능(기본값)
 		if(scri.getSearchType().equals("title")) {
-			 str = "and title concat('%','?','%')";
+			 str = "and title ?";
 			
 		}else {
-			str = "and writer concat('%','?','%')";
+			str = "and writer ?";
 			
 		}
 		
@@ -317,7 +317,7 @@ public class BoardDao {
 		return value;
 	}
 	
-	//여기부터 다시 수정
+	
 	
 	public int boardTotal(SearchCriteria scri) { //게시글 총합을 구하는
 		int cnt = 0;
@@ -331,7 +331,7 @@ public class BoardDao {
 			
 		}
 		
-		String sql="select count(*) as cnt from Quiz_fboard where delyn='N' "+str+"";
+		String sql="select count(*) as cnt from G_fboard where delyn='N' "+str+"";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -374,7 +374,7 @@ public class BoardDao {
 			
 		}
 		
-		String sql="select count(*) as cnt from Quiz_nboard where delyn='N' "+str+"";
+		String sql="select count(*) as cnt from G_nboard where delyn='N' "+str+"";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -412,7 +412,7 @@ public class BoardDao {
 		int value=0;
 		
 		
-		String sql1="update Quiz_fboard set FBOARD_C_COUNT = fboard_c_count+1 where fbidx=?";
+		String sql1="update G_fboard set FBOARD_C_COUNT = fboard_c_count+1 where fbidx=?";
 		
 		String sql2="insert into Reply(writer, content, memberip, midx, fbidx)"
 				+ "values(?, ?, ?, ?, ?)";
@@ -494,7 +494,7 @@ public class BoardDao {
 	public int Fboardhit(int bidx) { //자유게시판 조회수
 		int value=0;
 		
-		String sql="update Quiz_fboard set hit = hit+1 where fbidx=?";
+		String sql="update G_fboard set hit = hit+1 where fbidx=?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -511,7 +511,7 @@ public class BoardDao {
 	public int Nboardhit(int bidx) { //자유게시판 조회수
 		int value=0;
 		
-		String sql="update Quiz_nboard set hit = hit+1 where nbidx=?";
+		String sql="update G_nboard set hit = hit+1 where nbidx=?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -529,9 +529,7 @@ public class BoardDao {
 		ArrayList<BoardVo> mnlist = new ArrayList<BoardVo>();
 		ResultSet rs =null;
 		
-		String sql="SELECT *FROM (SELECT ROWNUM AS rnum, A. *from"
-				+ "(select * from(select * from QUIZ_NBOARD order by writeday desc)"
-				+ "WHERE delyn='N' and rownum <= 5)a)b WHERE rnum BETWEEN 1 AND 5";
+		String sql="SELECT * FROM G_nboard WHERE delyn='N' ORDER BY writeday desc limit 1,5";
 		
 			try {
 				pstmt = conn.prepareStatement(sql);
@@ -561,9 +559,7 @@ public class BoardDao {
 		ArrayList<BoardVo> mflist = new ArrayList<BoardVo>();
 		ResultSet rs =null;
 		
-		String sql="SELECT *FROM (SELECT ROWNUM AS rnum, A. *from"
-				+ "(select * from(select * from QUIZ_FBOARD order by writeday desc)"
-				+ "WHERE delyn='N' and rownum <= 10)a)b WHERE rnum BETWEEN 1 AND 10";
+		String sql="SELECT * FROM G_fboard WHERE delyn='N' ORDER BY writeday desc limit 1,10";
 		
 			try {
 				pstmt = conn.prepareStatement(sql);
@@ -593,7 +589,7 @@ public class BoardDao {
 		int value=0;
 		
 		
-		String sql1="update Quiz_nboard set NBOARD_C_COUNT = nboard_c_count+1 where nbidx=?";
+		String sql1="update G_nboard set NBOARD_C_COUNT = nboard_c_count+1 where nbidx=?";
 		
 		String sql2="insert into Reply(writer, content, memberip, midx, nbidx)"
 				+ "values(?, ?, ?, ?, ?)";

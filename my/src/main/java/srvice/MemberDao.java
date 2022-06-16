@@ -30,8 +30,8 @@ public class MemberDao {
 		int value=0;
 		//진화된 구문객체 선언 및 초기화
 
-	    String sql="insert into Quizmember(MIDX,MEMBERNAME,USERNAME,MEMBERID,MEMBERPWD,MEMBERPHONE, MEMBERIP,MEMBEREMAIL)"
-	    + "values(member_seq.nextval,?,?,?,?,?,?,?)";
+	    String sql="insert into Quizmember(MEMBERNAME,USERNAME,MEMBERID,MEMBERPWD,MEMBERPHONE, MEMBERIP,MEMBEREMAIL)"
+	    + "values(?,?,?,?,?,?,?)";
 	    
 	    
 	    
@@ -61,7 +61,7 @@ public class MemberDao {
 		ResultSet rs = null;
 		MemberVo mv = null;
 		
-		String sql="select*from Quizmember where delyn ='N' and memberid=? and memberpwd=?";
+		String sql="select*from G_member where delyn ='N' and memberid=? and memberpwd=?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -101,7 +101,7 @@ public class MemberDao {
 		String findid=null;
 		ResultSet rs=null;
 		
-		String sql="select*from Quizmember where delyn='N' and membername=? and memberphone=?";
+		String sql="select*from G_member where delyn='N' and membername=? and memberphone=?";
 		try {
 			pstmt = conn.prepareStatement(sql); //?입력값
 			pstmt.setString(1, memberName);
@@ -126,7 +126,7 @@ public class MemberDao {
 		String findpwd=null;
 		ResultSet rs=null;
 		
-		String sql="select*from Quizmember where delyn='N' and membername=? and memberid=? and memberphone=?";
+		String sql="select*from G_member where delyn='N' and membername=? and memberid=? and memberphone=?";
 		try {
 			pstmt = conn.prepareStatement(sql); //?입력값
 			pstmt.setString(1, memberName);
@@ -151,7 +151,7 @@ public class MemberDao {
 		MemberVo mv = null; //정보를 담을 빈공간을 만듬.
 		ResultSet rs = null;
 		
-		String sql="select*from Quizmember where delyn='N' and midx=?";
+		String sql="select*from G_member where delyn='N' and midx=?";
 		
 		
 		try {
@@ -177,7 +177,7 @@ public class MemberDao {
 		int value=0; //정보를 담을 곳
 		
 		
-		String sql="update Quizmember set userName=?, memberID=?, memberPwd=? where midx=?";
+		String sql="update G_member set userName=?, memberID=?, memberPwd=? where midx=?";
 		
 		
 		try {
@@ -186,10 +186,7 @@ public class MemberDao {
 			pstmt.setString(2, memberID); //2이라고 해야하는데 1이라고 해놈...
 			pstmt.setString(3, memberPwd);
 			pstmt.setInt(4, midx);
-			//System.out.println(userName);
-			//System.out.println(memberID);
-			//System.out.println(memberPwd);
-			//System.out.println(midx);
+
 			value = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			
