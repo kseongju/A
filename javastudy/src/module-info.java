@@ -1,0 +1,3 @@
+module javastudy {
+	exports javastudy;
+}
