@@ -88,15 +88,15 @@ if(session.getAttribute("midx") != null) {
 
 	<div>
 		<ul>
-			<li><a href="<%=request.getContextPath()%>/board/QuizNboard.do">공지사항</a></li>
-			<li><a href="<%=request.getContextPath()%>/board/QuizFboard.do">자유게시판</a></li>
+			<li><a href="<%=request.getContextPath()%>/board/G_Nboard.do">공지사항</a></li>
+			<li><a href="<%=request.getContextPath()%>/board/G_Fboard.do">자유게시판</a></li>
 		</ul>
 	</div>
 <% }else{%>
 	<div>
 		<ul>
-			<li><a href="<%=request.getContextPath()%>/board/QuizNboard.do">공지사항</a></li>
-			<li><a href="<%=request.getContextPath()%>/board/QuizFboard.do">자유게시판</a></li>
+			<li><a href="<%=request.getContextPath()%>/board/G_Nboard.do">공지사항</a></li>
+			<li><a href="<%=request.getContextPath()%>/board/G_Fboard.do">자유게시판</a></li>
 			
 		</ul>
 	</div>

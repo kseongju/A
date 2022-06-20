@@ -15,8 +15,8 @@
 
 <canvas id="myCanvas" width="480" height="320"> </canvas>
 
-<button type="button">메인페이지</button>
-<button type="button">dd</button>
+<button type="button" onclick="location.href='<%=request.getContextPath() %>/board/main.do'">메인페이지</button>
+
 <script>
 	// JavaScript 코드가 여기에 들어갈 것입니다.
 	

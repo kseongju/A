@@ -30,7 +30,7 @@ public class MemberDao {
 		int value=0;
 		//진화된 구문객체 선언 및 초기화
 
-	    String sql="insert into Quizmember(MEMBERNAME,USERNAME,MEMBERID,MEMBERPWD,MEMBERPHONE, MEMBERIP,MEMBEREMAIL)"
+	    String sql="insert into G_member(MEMBERNAME,USERNAME,MEMBERID,MEMBERPWD,MEMBERPHONE, MEMBERIP,MEMBEREMAIL)"
 	    + "values(?,?,?,?,?,?,?)";
 	    
 	    

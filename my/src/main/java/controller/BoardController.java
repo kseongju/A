@@ -5,6 +5,7 @@ import java.io.IOException;
 
 
 
+
 import java.net.InetAddress;
 import java.util.ArrayList;
 
@@ -19,8 +20,7 @@ import javax.servlet.http.HttpSession;
 import domain.BoardVo;
 import domain.SearchCriteria;
 import domain.PageMaker;
-import domain.QuizCriteria;
-import domain.QuizPageMaker;
+
 import srvice.BoardDao;
 
 
@@ -35,7 +35,7 @@ public class BoardController extends HttpServlet {
 				String pj = request.getContextPath();
 				String command = uri.substring(pj.length());
 				
-				if(command.equals("/board/QuizFboard.do")) { //자유게시판 클릭시
+				if(command.equals("/board/G_Fboard.do")) { //자유게시판 클릭시
 					
 					String page = request.getParameter("page"); //페이지를 스트링 타입으로 받음
 					if (page == null) page ="1"; //페이지가 널이면 1
@@ -63,7 +63,7 @@ public class BoardController extends HttpServlet {
 					request.setAttribute("alist", alist); //자원공유
 					request.setAttribute("pm", pm);
 							
-					RequestDispatcher rd = request.getRequestDispatcher("/board/QuizFboard.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("/board/G_Fboard.jsp");
 					rd.forward(request, response);
 					
 					
@@ -92,7 +92,7 @@ public class BoardController extends HttpServlet {
 					
 					if(value==1) { //글쓰기 성공
 						
-						response.sendRedirect(request.getContextPath()+"/board/QuizFboard.do"); //했다면 index페이지로 이동
+						response.sendRedirect(request.getContextPath()+"/board/G_Fboard.do"); //했다면 index페이지로 이동
 					}else {
 						response.sendRedirect(request.getContextPath()+"/board/Fboardwrite.do"); //아니면 글쓰기 페이지로
 					}
@@ -181,13 +181,13 @@ public class BoardController extends HttpServlet {
 					
 					if(value==1) { //삭제 성공
 						
-						response.sendRedirect(request.getContextPath()+"/board/QuizFboard.do"); //했다면 index페이지로 이동
+						response.sendRedirect(request.getContextPath()+"/board/G_Fboard.do"); //했다면 index페이지로 이동
 					}else {
 						response.sendRedirect(request.getContextPath()+"/board/Fboardcontent.do"); //아니면 글쓰기 페이지로
 					}
 					
 					
-				}else if(command.equals("/board/QuizNboard.do")) { //공지사항 클릭
+				}else if(command.equals("/board/G_Nboard.do")) { //공지사항 클릭
 					
 					String page = request.getParameter("page"); //페이지를 스트링 타입으로 받음
 					if (page == null) page ="1"; //페이지가 널이면 1
@@ -215,7 +215,7 @@ public class BoardController extends HttpServlet {
 					request.setAttribute("pm", pm);
 					request.setAttribute("alist", alist); //자원공유
 					
-					RequestDispatcher rd = request.getRequestDispatcher("/board/QuizNboard.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("/board/G_Nboard.jsp");
 					rd.forward(request, response);
 					
 				}else if(command.equals("/board/Nboardcontent.do")) { //게시글 클릭
@@ -269,7 +269,7 @@ public class BoardController extends HttpServlet {
 					
 					if(value==1) { //글쓰기 성공
 						
-						response.sendRedirect(request.getContextPath()+"/board/QuizNboard.do"); //했다면 index페이지로 이동
+						response.sendRedirect(request.getContextPath()+"/board/G_Nboard.do"); //했다면 index페이지로 이동
 					}else {
 						response.sendRedirect(request.getContextPath()+"/board/Nboardwrite.do"); //아니면 글쓰기 페이지로
 					}
@@ -333,7 +333,7 @@ public class BoardController extends HttpServlet {
 					
 					if(value==1) { //삭제 성공
 						
-						response.sendRedirect(request.getContextPath()+"/board/QuizNboard.do"); //했다면 index페이지로 이동
+						response.sendRedirect(request.getContextPath()+"/board/G_Nboard.do"); //했다면 index페이지로 이동
 					}else {
 						response.sendRedirect(request.getContextPath()+"/board/Nboardcontent.do?nbidx="+bidx_); //아니면 글쓰기 페이지로
 					}

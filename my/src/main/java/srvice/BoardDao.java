@@ -4,6 +4,7 @@ import java.sql.Connection;
 
 
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 
 import DBconn.DBconn;
 import domain.BoardVo;
-import domain.QuizCriteria;
+
 import domain.SearchCriteria;
 
 public class BoardDao {
@@ -103,15 +104,15 @@ public class BoardDao {
 			
 		}
 		
-		String sql = "select *from G_fboard where delyn='N'"+str+"order by writeday desc limit ?,?";//페이징
+		String sql = "select * from G_fboard where delyn='N' " +str+ " order by writeday desc limit ?,?";//페이징
 		
 		
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, "%"+scri.getKeyword()+"%"); //검색어를 집어넣음.
-			pstmt.setInt(2, (scri.getPage()-1)*15+1); //1에서
-			pstmt.setInt(3, (scri.getPage()*15));//15까지만 한페이지에 출력
+			pstmt.setInt(2, (scri.getPage()-1)*15); //1에서
+			pstmt.setInt(3, (scri.getPage()*14));//15까지만 한페이지에 출력
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -139,22 +140,22 @@ public class BoardDao {
 		
 		String str=""; //검색기능(기본값)
 		if(scri.getSearchType().equals("title")) {
-			 str = "and title ?";
+			 str = "and title like ?";
 			
 		}else {
-			str = "and writer ?";
+			str = "and writer like ?";
 			
 		}
 		
-		String sql = "select *from G_nboard where delyn='N'"+str+"order by writeday desc limit ?,?";//페이징
+		String sql = "select * from G_nboard where delyn='N' " +str+ "order by writeday desc limit ?,?";//페이징
 		
 		//String sql="select*from Quiz_nboard where delyn='N' order by writeday desc";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, "%"+scri.getKeyword()+"%"); //검색어를 집어넣음.
-			pstmt.setInt(2, (scri.getPage()-1)*15+1); //1에서
-			pstmt.setInt(3, (scri.getPage()*15));//15까지만 한페이지에 출력
+			pstmt.setInt(2, (scri.getPage()-1)*15); //1에서
+			pstmt.setInt(3, (scri.getPage()*14));//15까지만 한페이지에 출력
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -529,7 +530,7 @@ public class BoardDao {
 		ArrayList<BoardVo> mnlist = new ArrayList<BoardVo>();
 		ResultSet rs =null;
 		
-		String sql="SELECT * FROM G_nboard WHERE delyn='N' ORDER BY writeday desc limit 1,5";
+		String sql="SELECT * FROM G_nboard WHERE delyn='N' ORDER BY writeday desc limit 0,4";
 		
 			try {
 				pstmt = conn.prepareStatement(sql);
@@ -559,7 +560,7 @@ public class BoardDao {
 		ArrayList<BoardVo> mflist = new ArrayList<BoardVo>();
 		ResultSet rs =null;
 		
-		String sql="SELECT * FROM G_fboard WHERE delyn='N' ORDER BY writeday desc limit 1,10";
+		String sql="SELECT * FROM G_fboard WHERE delyn='N' ORDER BY writeday desc limit 0,9";
 		
 			try {
 				pstmt = conn.prepareStatement(sql);

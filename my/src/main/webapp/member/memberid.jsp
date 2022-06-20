@@ -13,8 +13,6 @@
 String memberPhone = request.getParameter("memberphone");
 
 
-
-
 MemberDao md = new MemberDao();
 String findid = md.memberfindid(memberName, memberPhone); %>
 

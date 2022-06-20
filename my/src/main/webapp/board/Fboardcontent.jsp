@@ -103,7 +103,7 @@ if(session.getAttribute("midx") != null) {
 <button type="button" onclick="del()">삭제하기</button>
 
 <% } %>
-<button type="button" onclick="location.href='<%=request.getContextPath()%>/board/QuizFboard.do'">목록으로</button>
+<button type="button" onclick="location.href='<%=request.getContextPath()%>/board/G_Fboard.do'">목록으로</button>
 
 
 

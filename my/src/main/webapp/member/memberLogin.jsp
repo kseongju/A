@@ -18,7 +18,6 @@
 		fm.submit();
 		
 		return;
-		
 	}
 
 </script>

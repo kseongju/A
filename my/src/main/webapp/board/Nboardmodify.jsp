@@ -32,7 +32,6 @@
 <body>
 	<% 
 
-	
 int midx = 0;
 if(session.getAttribute("midx") != null) {
 	midx = (int)session.getAttribute("midx");

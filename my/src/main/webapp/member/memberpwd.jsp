@@ -13,9 +13,6 @@
 String memberID = request.getParameter("memberid");
 String memberPhone = request.getParameter("memberphone");
 
-
-
-
 MemberDao md = new MemberDao();
 String findpwd = md.memberfindpwd(memberName, memberID, memberPhone); %>
 

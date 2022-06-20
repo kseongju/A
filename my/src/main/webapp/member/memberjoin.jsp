@@ -10,7 +10,6 @@
 function check() {
 	//alert("테스트");
 	var fm=document.Join;
-	
 	if(fm.membername.value==""){
 		alert("이름을 입력하세요");
 		fm.membername.focus(); 

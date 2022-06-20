@@ -9,5 +9,6 @@
 <body>
 <a href="<%=request.getContextPath()%>/board/main.do">메인페이지가기</a>
 
+
 </body>
 </html>

@@ -97,7 +97,7 @@ if(session.getAttribute("midx") != null) {
 <button type="button" onclick="location.href='<%=request.getContextPath()%>/board/Nboardmodify.do?nbidx=<%=bv.getBidx() %>'">수정하기</button>
 <button type="button" onclick="del()">삭제하기</button>
 <% } %>
-<button type="button" onclick="location.href='<%=request.getContextPath()%>/board/QuizNboard.do'">목록으로</button>
+<button type="button" onclick="location.href='<%=request.getContextPath()%>/board/G_Nboard.do'">목록으로</button>
 
 
 <form>

@@ -20,7 +20,6 @@ function check(){
 	
 }
 
-
 </script>
 </head>
 <body>
