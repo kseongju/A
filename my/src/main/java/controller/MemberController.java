@@ -4,6 +4,7 @@ import java.io.IOException;
 
 
 import java.net.InetAddress;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -152,13 +153,23 @@ public class MemberController extends HttpServlet {
 		}else {				//아니라면
 			response.sendRedirect(request.getContextPath()+"/member/memberLogin.do");	//로그인페이지로			
 		}
-	}else if (command.equals("/member/memberLogout.do")) {
+	}else if(command.equals("/member/memberLogout.do")) {
 		
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
 		response.sendRedirect(request.getContextPath()+"/");
 		
+	}else if(command.equals("/member/memberList.do")) { //회원목록
+		
+		MemberDao md = new MemberDao();
+		
+		ArrayList<MemberVo> mlist = md.memberSelectAll();
+		
+		request.setAttribute("mlist", mlist);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/member/memberList.jsp");
+		rd.forward(request, response);
 	}
 	
 	

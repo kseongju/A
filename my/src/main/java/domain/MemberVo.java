@@ -10,6 +10,8 @@ public class MemberVo {
 	private String memberPhone;
 	private String memberip;
 	private String memberemail;
+	private String creationdate;
+	private String delyn;
 	
 	public String getMemberip() {
 		return memberip;
@@ -58,5 +60,18 @@ public class MemberVo {
 	}
 	public void setMemberemail(String memberemail) {
 		this.memberemail = memberemail;
+	}
+
+	public String getCreationdate() {
+		return creationdate;
+	}
+	public void setCreationdate(String creationdate) {
+		this.creationdate = creationdate;
+	}
+	public String getDelyn() {
+		return delyn;
+	}
+	public void setDelyn(String delyn) {
+		this.delyn = delyn;
 	}
 }

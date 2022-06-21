@@ -15,7 +15,7 @@
 <meta charset="UTF-8">
 <title>메인 페이지</title>
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css" type="text/css">
 <script src="<%= request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
 <script>
     $(function(){ //로딩화면
@@ -85,21 +85,20 @@ if(session.getAttribute("midx") != null) {
 <nav>
 
 <%if(midx==1){ %> <!-- 관리자 계정 midx가 1임 -->
-
-	<div>
-		<ul>
-			<li><a href="<%=request.getContextPath()%>/board/G_Nboard.do">공지사항</a></li>
-			<li><a href="<%=request.getContextPath()%>/board/G_Fboard.do">자유게시판</a></li>
-		</ul>
-	</div>
+<table id="menu">
+<tr>
+<td><a href="<%=request.getContextPath()%>/board/G_Nboard.do">공지사항</a></td>
+<td><a href="<%=request.getContextPath()%>/board/G_Fboard.do">자유게시판</a></td>
+<td><a href="<%=request.getContextPath()%>/member/memberList.do">회원관리</a></td>
+</tr>
+</table>
 <% }else{%>
-	<div>
-		<ul>
-			<li><a href="<%=request.getContextPath()%>/board/G_Nboard.do">공지사항</a></li>
-			<li><a href="<%=request.getContextPath()%>/board/G_Fboard.do">자유게시판</a></li>
-			
-		</ul>
-	</div>
+<table id="menu">
+<tr>
+<td><a href="<%=request.getContextPath()%>/board/G_Nboard.do">공지사항</a></td>
+<td><a href="<%=request.getContextPath()%>/board/G_Fboard.do">자유게시판</a></td>
+</tr>
+</table>
 <% }%>
 </nav>
 

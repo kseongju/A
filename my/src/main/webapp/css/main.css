@@ -55,6 +55,13 @@ nav ul li{
  	 
 }
 
+nav #menu{
+	
+	width : 900px;
+	height : 100%;
+	text-align: center;
+}
+
 a{
 	text-decoration : none;
 	

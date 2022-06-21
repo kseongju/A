@@ -7,9 +7,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
 
 import DBconn.DBconn;
+import domain.BoardVo;
 import domain.MemberVo;
 
 public class MemberDao {
@@ -194,6 +195,38 @@ public class MemberDao {
 		}
 		
 		return value;
+	}
+	
+	public ArrayList<MemberVo> memberSelectAll(){
+		
+		ArrayList<MemberVo> mlist = new ArrayList<MemberVo>();
+		ResultSet rs= null;
+		
+		String sql="select*from G_member order by midx asc";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs= pstmt.executeQuery();
+			
+			while(rs.next()) {
+				MemberVo mv = new MemberVo();
+				mv.setMidx(rs.getInt("midx"));
+				mv.setMemberName(rs.getString("memberName"));
+				mv.setMemberID(rs.getString("memberID"));
+				mv.setUserName(rs.getString("userName"));
+				mv.setMemberPhone(rs.getString("memberPhone"));
+				mv.setCreationdate(rs.getString("creationdate"));
+				mv.setDelyn(rs.getString("delyn"));
+			
+				mlist.add(mv); //각각의 bv객체를 alist에 추가한다.
+			}
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return mlist;
 	}
 	
 	
