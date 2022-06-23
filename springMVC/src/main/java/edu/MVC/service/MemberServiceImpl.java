@@ -21,11 +21,17 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int idcheck(MemberVo vo) {
+	public int idcheck(String id) {
 		
-		int result = memberdao.idcheck(vo);
+		int result = memberdao.idcheck(id);
 		
 		return result;
+	}
+
+	@Override
+	public MemberVo selectbyLogin(MemberVo vo) {
+		
+		return memberdao.selectbyLogin(vo);
 	}
 
 }

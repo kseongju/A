@@ -1,5 +1,9 @@
 package edu.MVC.controller;
 
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,13 +32,22 @@ public class MemberController {
 		return "Member/join"; //회원가입페이지로 이동
 	}
 	
-	@RequestMapping(value="/join.do", method=RequestMethod.POST)
-	public String Memberjoin(MemberVo vo) {
+	@RequestMapping(value="/logout.do") //로그아웃
+	public String MemberLogout(HttpServletRequest request, HttpSession session) {
 		
-		int result = memberService.idcheck(vo);
+		session = request.getSession(); //세션 데이터를 가져옴
+		session.invalidate(); //session값을 제거
+		
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value="/join.do", method=RequestMethod.POST)
+	public String Memberjoin(MemberVo vo, String id) {
+		
+		int result = memberService.idcheck(id);
 		
 		if(result ==1) {
-			return "/Member/join.do";
+			return "/Member/join";
 		}else if(result==0) {
 			
 			memberService.insert(vo);
@@ -45,13 +58,34 @@ public class MemberController {
 	
 	@ResponseBody // 무조건 반환
 	@RequestMapping(value="/idcheck.do", method=RequestMethod.POST)
-	public int idcheck(MemberVo vo) {
+	public String IDcheck(String id) {
 		
-		System.out.println("작동중");
+		//ajax를 리턴값으로 스트링 타입으로 받아야 함
 		
-		int result = memberService.idcheck(vo);
+		return memberService.idcheck(id) +""; //값을 가지고 있다 회원가입페이지에서 다시꺼냄
+	}
+	
+	@RequestMapping(value="login.do", method=RequestMethod.POST)
+	public String MemberLogin(MemberVo vo, HttpSession session, HttpServletRequest request) { //session은 session을 이용할 수 있고, request는 값을 받아올 수 있음
 		
-		return result; //값을 가지고 있다 회원가입페이지에서 다시꺼냄
+		MemberVo member = memberService.selectbyLogin(vo); //member에 로그인 정보를 담는다.
+	
+		if(member != null) { //member가 널이 아니면
+			session = request.getSession(); //세션을 생성
+			MemberVo login = new MemberVo(); //login객체를 생성
+			login.setId(member.getId());
+			login.setPassword(member.getPassword());
+			login.setName(member.getName()); //login객체 안에 로그인 정보를 담는다.
+			
+			session.setAttribute("login", login); //login객체를 세션에 담는다. 
+			
+			return "redirect:/Board/Nboard.do";
+		}else{
+			
+			return "redirect:/Member/login.do";
+		}
+		
+
 	}
 
 }

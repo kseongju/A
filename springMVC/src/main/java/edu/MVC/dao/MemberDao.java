@@ -21,11 +21,15 @@ public class MemberDao {
 		//예시로 들자면 원래 edu.MVC.mapper.MemberMapper.insert이다.
 	}
 	
-	public int idcheck(MemberVo vo) {
+	public int idcheck(String id) {
 		
-		int result = sqlSession.selectOne(namespace+ ".idcheck", vo);
+		return sqlSession.selectOne(namespace+ ".idcheck", id);
+	
+	}
+	
+	public MemberVo selectbyLogin(MemberVo vo) {
 		
-		return result;
+		return sqlSession.selectOne(namespace+ ".selectbyLogin", vo);
 	}
 	
 }

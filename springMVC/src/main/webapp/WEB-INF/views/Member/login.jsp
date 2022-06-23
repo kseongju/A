@@ -13,11 +13,11 @@
 
 <h5>해당 시스템은 로그인 후 이용가능합니다.</h5>
 <hr>
-<form name="frm" id="login">
+<form name="frm" id="login" method="Post" action="login.do">
 <table>
 <tr>
 <td style="text-align:right">아이디 : </td>
-<td> <input type="text" name="ID"></td>
+<td> <input type="text" name="id"></td>
 </tr>
 <tr>
 <td>비밀번호 : </td>
