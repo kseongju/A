@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="edu.MVC.mapper.MemberMapper">
+  	<select id="selectbyLogin">
+  		
+  	
+  	
+  	</select>
+  	<insert id="insert" parameterType="MemberVo">
+  		INSERT INTO mvcmember(
+  			 midx
+  			,id
+  			,password
+  			,name
+  			,email
+  			,phone
+  			,addr
+  		)VALUES(
+  			 mvcmember_midx.nextval
+  			,#{id}
+  			,#{password}
+  			,#{name}
+  			,#{email}
+  			,#{phone}
+  			,#{addr} 	
+  		)
+
+  	</insert>
+  	<!-- 아이디 중복체크 -->
+  	<select id="idcheck" resultType="int">
+  		SELECT COUNT(*)
+  		  FROM mvcmember
+  		 WHERE id = #{id}
+  	
+  	</select>
+
+  </mapper>
