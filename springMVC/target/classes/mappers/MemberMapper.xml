@@ -14,6 +14,7 @@
   		 	  	 
   	</select>
   	<insert id="insert" parameterType="MemberVo">
+  		<![CDATA[
   		INSERT INTO mvcmember(
   			 midx
   			,id
@@ -21,7 +22,9 @@
   			,name
   			,email
   			,phone
-  			,addr
+  			,addr1
+  			,addr2
+  			,addr3
   		)VALUES(
   			 mvcmember_midx.nextval
   			,#{id}
@@ -29,9 +32,11 @@
   			,#{name}
   			,#{email}
   			,#{phone}
-  			,#{addr} 	
+  			,#{addr1}
+  			,#{addr2}
+  			,#{addr3}
   		)
-
+		]]>
   	</insert>
   	<!-- 아이디 중복체크 -->
   	<select id="idcheck" resultType="integer" parameterType="String">

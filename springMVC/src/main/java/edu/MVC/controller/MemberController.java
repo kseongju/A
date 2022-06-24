@@ -32,19 +32,14 @@ public class MemberController {
 		return "Member/join"; //회원가입페이지로 이동
 	}
 	
-	@RequestMapping(value="/logout.do") //로그아웃
-	public String MemberLogout(HttpServletRequest request, HttpSession session) {
-		
-		session = request.getSession(); //세션 데이터를 가져옴
-		session.invalidate(); //session값을 제거
-		
-		return "redirect:/";
-	}
+
 	
 	@RequestMapping(value="/join.do", method=RequestMethod.POST)
 	public String Memberjoin(MemberVo vo, String id) {
 		
 		int result = memberService.idcheck(id);
+		
+		//다시 꺼낼때 곤란 vo.setAddr(vo.getAddr1(),vo.getAddr2(),vo.getAddr3()); //addr에 addr1,2,3을 넣어준다.
 		
 		if(result ==1) {
 			return "/Member/join";
@@ -76,6 +71,7 @@ public class MemberController {
 			login.setId(member.getId());
 			login.setPassword(member.getPassword());
 			login.setName(member.getName()); //login객체 안에 로그인 정보를 담는다.
+
 			
 			session.setAttribute("login", login); //login객체를 세션에 담는다. 
 			
@@ -86,6 +82,15 @@ public class MemberController {
 		}
 		
 
+	}
+	
+	@RequestMapping(value="/logout.do") //로그아웃
+	public String MemberLogout(HttpServletRequest request, HttpSession session) {
+		
+		session = request.getSession(); //세션 데이터를 가져옴
+		session.invalidate(); //session값을 제거
+		
+		return "redirect:/Member/login.do";
 	}
 
 }

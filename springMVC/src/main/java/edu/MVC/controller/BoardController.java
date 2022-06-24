@@ -14,4 +14,9 @@ public class BoardController {
 		return "Board/Nboard";
 	}
 
+	@RequestMapping(value="Nboardwrite.do", method=RequestMethod.GET)
+	public String Nboardwrite() {
+		
+		return "Board/Nboardwrite";
+	}
 }
