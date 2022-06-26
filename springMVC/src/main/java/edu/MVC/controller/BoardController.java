@@ -19,4 +19,10 @@ public class BoardController {
 		
 		return "Board/Nboardwrite";
 	}
+	
+	@RequestMapping(value="QAboard.do", method=RequestMethod.GET)
+	public String QAboard() {
+		
+		return "Board/QAboard";
+	}
 }
