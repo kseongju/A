@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항</title>
+<title>Q&A</title>
 </head>
 <body>
 <table>
@@ -20,7 +20,7 @@ Member로 들어가야 됨-->
 </div>
 <hr>
 
-| 공지사항
+| Q&A(질문과 답변)
 <hr>
 <form>
 검색
