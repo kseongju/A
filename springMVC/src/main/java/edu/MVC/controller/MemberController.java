@@ -71,6 +71,8 @@ public class MemberController {
 			login.setId(member.getId());
 			login.setPassword(member.getPassword());
 			login.setName(member.getName()); //login객체 안에 로그인 정보를 담는다.
+			login.setMidx(member.getMidx());
+			System.out.println(login.getMidx());
 
 			
 			session.setAttribute("login", login); //login객체를 세션에 담는다. 

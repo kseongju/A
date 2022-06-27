@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page session="true" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항 작성</title>
+<title>Insert title here</title>
 </head>
 <body>
 <table>
@@ -21,19 +20,19 @@ Member로 들어가야 됨-->
 
 | 공지사항
 <hr>
-<form action="Nboardwrite.do" method="post" >
-
+<form action="Nboardmodify.do" method="post" >
+<input type="hidden" value="${vo.bidx}" name="bidx">
 <table>
 	<tr>
 		<td>
 			제목
 		</td>
 		<td>
-			<input type="text" name="title">
+			<input type="text" name="title" value="${vo.title}">
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2"><textarea rows="20" cols="100" name="content"></textarea></td>
+		<td colspan="2"><textarea rows="20" cols="100" name="content">${vo.content}</textarea></td>
 	</tr>
 	<tr>
 		<td>
@@ -45,8 +44,9 @@ Member로 들어가야 됨-->
 	</tr>
 
 </table>
-<button type="button" onclick="location.href='Nboard.do'">취소</button>
-<button>확인</button>
+<button type="button" onclick="location.href='Nboardcontent.do?bidx=${vo.bidx}';">취소</button>
+<button>수정완료</button>
 </form>
+
 </body>
 </html>

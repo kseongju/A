@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항보기</title>
+
 </head>
 <body>
 <table>
@@ -26,12 +27,13 @@ Member로 들어가야 됨-->
 				작성자
 			</td>
 			<td>
+				${vo.name}
 			</td>
 			<td>
 				등록일
 			</td>
 			<td>
-			
+				${vo.wdate}
 			</td>
 			<td>
 				조회수
@@ -46,12 +48,12 @@ Member로 들어가야 됨-->
 				제목
 			</td>
 			<td>
-			
+				${vo.title}
 			</td>
 		</tr>
 		<tr>
 			<td>
-				
+				${vo.content}
 			</td>
 		</tr>
 		<tr>
@@ -62,8 +64,8 @@ Member로 들어가야 됨-->
 			</td>
 		</tr>
 	</table>
-<button type="button">삭제</button>
-<button type="button">수정</button>
+<button type="button" onclick="location.href='delNboard.do?bidx=${vo.bidx}';">삭제</button>
+<button type="button" onclick="location.href='Nboardmodify.do?bidx=${vo.bidx}';">수정</button>
 <button type="button">목록</button>
 </form>
 </body>

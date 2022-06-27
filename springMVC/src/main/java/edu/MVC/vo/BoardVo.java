@@ -1,6 +1,6 @@
 package edu.MVC.vo;
 
-public class BoardVo {
+public class BoardVo extends MemberVo{
 	private int bidx;
 	private String title;
 	private String content;

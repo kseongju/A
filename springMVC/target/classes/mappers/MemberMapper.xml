@@ -6,6 +6,7 @@
   	<select id="selectbyLogin" parameterType="MemberVo" resultType="MemberVo">
   		SELECT 
   			 id
+  			,midx
   			,password
   			,name
   		  FROM mvcmember

@@ -45,7 +45,7 @@ Member로 들어가야 됨-->
 				제목
 			</th>
 			<th>
-				작성자 ${login.addr1}
+				작성자
 			</th>
 			<th>
 				등록일
@@ -56,13 +56,21 @@ Member로 들어가야 됨-->
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
+			<c:if test="${list.size() == 0 }">
+				<tr>
+					<td colspan="4">등록 된 게시글이 없습니다.</td>
+				</tr>
+			</c:if>
+			<c:if test="${list.size() > 0}">
+				<c:forEach var="vo" items="${list}">
+					<tr>
+						<td>${vo.bidx}</td>
+						<td><a href="Nboardcontent.do?bidx=${vo.bidx}">${vo.title}</a></td>
+						<td>${vo.name}</td>
+						<td>${vo.wdate}</td>
+					</tr>
+				</c:forEach>
+			</c:if>
 	</tbody>
 </table>
 </form>

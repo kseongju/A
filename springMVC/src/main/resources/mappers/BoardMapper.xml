@@ -3,27 +3,38 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
-<mapper namespace="edu.MVC.mapper.boardMapper">
+<mapper namespace="edu.MVC.mapper.BoardMapper">
 	
 	
-	<select id="selectNboard" resultType="boardVo">
+	<select id="selectNboard" resultType="BoardVo">
 		SELECT a.bidx
 		     , a.title
-		     , b.midx
-		     , a.content
+		     , b.name
 		     , a.wdate
 		  FROM mvcNboard a, mvcmember b
-		 WHERE delyn = "N"
+		 WHERE b.midx=a.midx
+		   AND delyn = 'N'
 	</select>
-	<insert id="insertNboard" parameterType="boardVo">
+	<select id="selectoneNboard" resultType="BoardVo" parameterType="int">
+		SELECT a.bidx
+			 , a.title
+			 , b.midx
+			 , a.content
+			 , a.wdate
+			 , b.name
+		  FROM mvcNboard a, mvcmember b
+		 WHERE b.midx=a.midx
+		   AND a.bidx = #{bidx}
+	</select>
+	<insert id="insertNboard" parameterType="BoardVo">
 	 	INSERT INTO mvcNboard(
 	 		    bidx
 	 		   ,midx
 	 		   ,title
 	 		   ,content 
 	 		   ,wdate
-	 	)VAEULS(
-	 		   ,mvcNboard_bidx.nextval
+	 	)VALUES(
+	 		    mvcNboard_bidx.nextval
 	 		   ,#{midx}
 	 		   ,#{title}
 	 		   ,#{content}
@@ -32,4 +43,17 @@
 	
 	
 	</insert>
+	<update id="delNboard" parameterType="int">
+		UPDATE mvcNboard 
+		   SET delyn ='Y'
+		 WHERE bidx = #{bidx}
+
+	</update>
+	<update id="modifyNboard" parameterType="BoardVo">
+		UPDATE mvcNboard
+		   SET title = #{title},
+		       content = #{content}
+		 WHERE bidx = #{bidx}
+	
+	</update>
 </mapper>
